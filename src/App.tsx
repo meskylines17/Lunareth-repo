@@ -663,14 +663,14 @@ function RepositoryInfo({
     <Terminal className="w-4 h-4 text-[#9b7ede]" />
 
     <span className="text-xs font-medium text-white">
-    lunepkg configuration
+    luna configuration
     </span>
     </div>
 
     <code className="block text-xs font-mono text-stone-400 leading-6">
-    <span className="text-[#9b7ede]">$</span> lunepkg update
+    <span className="text-[#9b7ede]">$</span> luna update
     <br />
-    <span className="text-[#9b7ede]">$</span> lunepkg install &lt;package&gt;
+    <span className="text-[#9b7ede]">$</span> luna install &lt;package&gt;
     </code>
 
     </div>
