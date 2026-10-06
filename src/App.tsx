@@ -52,7 +52,7 @@ export default function App() {
     {
       name: 'hello',
       version: '1.0.0',
-      file: 'packages/hello-1.0.0.lpk',
+      file: 'packages/hello-1.0.0.rpm',
       architecture: 'x86_64',
       description:
       'An example package for testing Lunareth OS package management.',
@@ -542,7 +542,7 @@ function PackageCard({
 
       <span>•</span>
 
-      <span>.lpk</span>
+      <span>.rpm</span>
 
       {detailed && (
         <>
@@ -623,7 +623,7 @@ function RepositoryInfo({
     <InfoCard
     icon={<Package className="w-4 h-4" />}
     label="Format"
-    value=".lpk"
+    value=".rpm"
     />
 
     </div>
