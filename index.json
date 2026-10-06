@@ -1,0 +1,11 @@
+{
+  "name": "lunareth",
+  "version": "1",
+  "packages": {
+    "hello": {
+      "version": "1.0.0",
+      "file": "packages/hello-1.0.0.lpk",
+      "architecture": "x86_64"
+    }
+  }
+}
