@@ -7,3 +7,112 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
+
+@keyframes lunareth-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes lunareth-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes lunareth-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes lunareth-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes lunareth-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.45;
+    transform: scale(1.25);
+  }
+}
+
+.lunareth-fade-up {
+  animation: lunareth-fade-up 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.lunareth-fade-in {
+  animation: lunareth-fade-in 500ms ease-out both;
+}
+
+.lunareth-scale-in {
+  animation: lunareth-scale-in 350ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.lunareth-float {
+  animation: lunareth-float 4s ease-in-out infinite;
+}
+
+.lunareth-pulse {
+  animation: lunareth-pulse 2s ease-in-out infinite;
+}
+
+.lunareth-delay-1 {
+  animation-delay: 80ms;
+}
+
+.lunareth-delay-2 {
+  animation-delay: 160ms;
+}
+
+.lunareth-delay-3 {
+  animation-delay: 240ms;
+}
+
+.lunareth-delay-4 {
+  animation-delay: 320ms;
+}
+
+.lunareth-delay-5 {
+  animation-delay: 400ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

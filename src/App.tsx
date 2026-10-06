@@ -124,16 +124,16 @@ export default function App() {
     <div className="min-h-screen bg-[#0d0f14] text-stone-300 font-sans antialiased flex flex-col selection:bg-[#9b7ede]/30 selection:text-white">
 
     {/* Header */}
-    <header className="sticky top-0 z-50 border-b border-zinc-800/80 bg-[#0d0f14]/85 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-zinc-800/80 bg-[#0d0f14]/85 backdrop-blur-xl lunareth-fade-in">
     <div className="max-w-5xl mx-auto px-5 sm:px-6 h-16 flex items-center justify-between">
 
     <button
     onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
     className="flex items-center gap-3 group cursor-pointer"
     >
-    <div className="w-9 h-9 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center group-hover:border-[#9b7ede]/50 transition-colors">
+    <div className="w-9 h-9 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center group-hover:border-[#9b7ede]/50 group-hover:scale-105 transition-all duration-200">
     <Moon
-    className="w-5 h-5 text-[#b8a9fc]"
+    className="w-5 h-5 text-[#b8a9fc] lunareth-float"
     strokeWidth={1.8}
     />
     </div>
@@ -153,7 +153,7 @@ export default function App() {
 
     <button
     onClick={openPackageBrowser}
-    className="px-3.5 py-2 rounded-xl text-xs font-medium text-stone-300 hover:text-white hover:bg-zinc-900 transition-colors flex items-center gap-2 cursor-pointer"
+    className="px-3.5 py-2 rounded-xl text-xs font-medium text-stone-300 hover:text-white hover:bg-zinc-900 hover:-translate-y-0.5 transition-all duration-200 flex items-center gap-2 cursor-pointer"
     >
     <Boxes className="w-3.5 h-3.5" />
     Packages
@@ -161,14 +161,14 @@ export default function App() {
 
     <button
     onClick={openRepositoryInfo}
-    className="px-3.5 py-2 rounded-xl text-xs font-medium text-stone-300 hover:text-white hover:bg-zinc-900 transition-colors flex items-center gap-2 cursor-pointer"
+    className="px-3.5 py-2 rounded-xl text-xs font-medium text-stone-300 hover:text-white hover:bg-zinc-900 hover:-translate-y-0.5 transition-all duration-200 flex items-center gap-2 cursor-pointer"
     >
     <BookOpen className="w-3.5 h-3.5" />
     Repository
     </button>
 
     <div className="ml-2 flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-900 border border-zinc-800 text-xs text-emerald-400">
-    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 lunareth-pulse" />
     Online
     </div>
 
@@ -181,28 +181,28 @@ export default function App() {
     <main className="flex-grow max-w-5xl mx-auto px-5 sm:px-6 py-16 w-full">
 
     {/* Hero */}
-    <section className="text-center max-w-3xl mx-auto">
+    <section className="text-center max-w-3xl mx-auto lunareth-fade-up">
 
-    <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-900/80 border border-zinc-800 text-xs font-mono text-[#b8a9fc] mb-6">
+    <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-900/80 border border-zinc-800 text-xs font-mono text-[#b8a9fc] mb-6 lunareth-fade-up lunareth-delay-1">
     <Moon className="w-3.5 h-3.5" />
     Lunareth OS
     </div>
 
-    <h1 className="text-4xl sm:text-6xl font-bold text-white tracking-tight leading-tight">
+    <h1 className="text-4xl sm:text-6xl font-bold text-white tracking-tight leading-tight lunareth-fade-up lunareth-delay-2">
     Lunareth Repository
     </h1>
 
-    <p className="text-base sm:text-lg text-stone-400 max-w-xl mx-auto mt-5 leading-relaxed">
+    <p className="text-base sm:text-lg text-stone-400 max-w-xl mx-auto mt-5 leading-relaxed lunareth-fade-up lunareth-delay-3">
     A simple package repository for Lunareth OS.
     <br className="hidden sm:block" />
     Powered by <span className="text-[#b8a9fc]">luna</span>.
     </p>
 
-    <div className="flex flex-wrap justify-center gap-3 mt-8">
+    <div className="flex flex-wrap justify-center gap-3 mt-8 lunareth-fade-up lunareth-delay-4">
 
     <button
     onClick={openPackageBrowser}
-    className="px-5 py-2.5 rounded-xl bg-[#9b7ede] hover:bg-[#a88de5] active:scale-[0.98] text-zinc-950 font-semibold text-sm transition-all flex items-center gap-2 cursor-pointer"
+    className="px-5 py-2.5 rounded-xl bg-[#9b7ede] hover:bg-[#a88de5] hover:-translate-y-0.5 active:scale-[0.98] text-zinc-950 font-semibold text-sm transition-all duration-200 flex items-center gap-2 cursor-pointer"
     >
     <Package className="w-4 h-4" />
     Browse Packages
@@ -210,7 +210,7 @@ export default function App() {
 
     <button
     onClick={openRepositoryInfo}
-    className="px-5 py-2.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-white font-medium text-sm border border-zinc-800 transition-all flex items-center gap-2 cursor-pointer"
+    className="px-5 py-2.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 hover:-translate-y-0.5 text-white font-medium text-sm border border-zinc-800 transition-all duration-200 flex items-center gap-2 cursor-pointer"
     >
     <Server className="w-4 h-4" />
     Repository Info
@@ -223,7 +223,7 @@ export default function App() {
     {/* Quick stats */}
     <section className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-16">
 
-    <div className="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-5">
+    <div className="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-5 hover:-translate-y-1 hover:border-zinc-700 transition-all duration-200 lunareth-fade-up lunareth-delay-1">
     <div className="flex items-center gap-2 text-stone-500 text-xs uppercase tracking-wider">
     <Boxes className="w-4 h-4" />
     Packages
@@ -234,7 +234,7 @@ export default function App() {
     </div>
     </div>
 
-    <div className="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-5">
+    <div className="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-5 hover:-translate-y-1 hover:border-zinc-700 transition-all duration-200 lunareth-fade-up lunareth-delay-2">
     <div className="flex items-center gap-2 text-stone-500 text-xs uppercase tracking-wider">
     <HardDrive className="w-4 h-4" />
     Architecture
@@ -245,7 +245,7 @@ export default function App() {
     </div>
     </div>
 
-    <div className="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-5">
+    <div className="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-5 hover:-translate-y-1 hover:border-zinc-700 transition-all duration-200 lunareth-fade-up lunareth-delay-3">
     <div className="flex items-center gap-2 text-stone-500 text-xs uppercase tracking-wider">
     <CircleCheck className="w-4 h-4 text-emerald-400" />
     Status
@@ -259,7 +259,7 @@ export default function App() {
     </section>
 
     {/* Repository URL */}
-    <section className="mt-4 bg-zinc-900/50 border border-zinc-800 rounded-2xl p-5">
+    <section className="mt-4 bg-zinc-900/50 border border-zinc-800 rounded-2xl p-5 hover:border-zinc-700 transition-colors lunareth-fade-up lunareth-delay-4">
 
     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
 
@@ -275,7 +275,7 @@ export default function App() {
 
     <button
     onClick={copyRepoUrl}
-    className="shrink-0 px-4 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 text-xs text-white font-medium transition-all flex items-center justify-center gap-2 cursor-pointer"
+    className="shrink-0 px-4 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 hover:-translate-y-0.5 border border-zinc-700 text-xs text-white font-medium transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
     >
     {copied ? (
       <Check className="w-3.5 h-3.5 text-emerald-400" />
@@ -337,7 +337,7 @@ export default function App() {
     </h2>
     </div>
 
-    <div className="bg-zinc-950 border border-zinc-800 rounded-2xl overflow-hidden">
+    <div className="bg-zinc-950 border border-zinc-800 rounded-2xl overflow-hidden lunareth-fade-up">
 
     <div className="px-4 py-3 border-b border-zinc-800 flex items-center gap-2">
     <Terminal className="w-4 h-4 text-stone-500" />
@@ -380,7 +380,7 @@ export default function App() {
     </main>
 
     {/* Footer */}
-    <footer className="border-t border-zinc-800/80 bg-zinc-950">
+    <footer className="border-t border-zinc-800/80 bg-zinc-950 lunareth-fade-in">
 
     <div className="max-w-5xl mx-auto px-5 sm:px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-500">
 
@@ -393,12 +393,12 @@ export default function App() {
     <span>•</span>
 
     <span>
-    Made by allnew
+    Made by meskylines
     </span>
     </div>
 
     <div className="flex items-center gap-1.5">
-    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 lunareth-pulse" />
     Repository Online
     </div>
 
@@ -409,7 +409,7 @@ export default function App() {
     {/* Modal backdrop */}
     {activeMenu && (
       <div
-      className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-6"
+      className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-6 lunareth-fade-in"
       onMouseDown={(event) => {
         if (event.target === event.currentTarget) {
           setActiveMenu(null);
@@ -418,7 +418,7 @@ export default function App() {
       >
 
       {/* Modal */}
-      <div className="w-full sm:max-w-2xl max-h-[88vh] overflow-hidden bg-[#111319] border border-zinc-800 rounded-t-3xl sm:rounded-3xl shadow-2xl">
+      <div className="w-full sm:max-w-2xl max-h-[88vh] overflow-hidden bg-[#111319] border border-zinc-800 rounded-t-3xl sm:rounded-3xl shadow-2xl lunareth-scale-in">
 
       {/* Modal header */}
       <div className="px-5 py-4 border-b border-zinc-800 flex items-center justify-between">
@@ -427,9 +427,9 @@ export default function App() {
 
       <div className="w-9 h-9 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center">
       {activeMenu === 'packages' ? (
-        <Boxes className="w-4.5 h-4.5 text-[#b8a9fc]" />
+        <Boxes className="w-4 h-4 text-[#b8a9fc]" />
       ) : (
-        <Server className="w-4.5 h-4.5 text-[#b8a9fc]" />
+        <Server className="w-4 h-4 text-[#b8a9fc]" />
       )}
       </div>
 
@@ -451,7 +451,7 @@ export default function App() {
 
       <button
       onClick={() => setActiveMenu(null)}
-      className="w-8 h-8 rounded-lg hover:bg-zinc-800 flex items-center justify-center text-stone-500 hover:text-white transition-colors cursor-pointer"
+      className="w-8 h-8 rounded-lg hover:bg-zinc-800 flex items-center justify-center text-stone-500 hover:text-white hover:rotate-90 transition-all duration-200 cursor-pointer"
       >
       <X className="w-4 h-4" />
       </button>
@@ -464,13 +464,15 @@ export default function App() {
       {activeMenu === 'packages' ? (
         <div className="space-y-3">
 
-        {packages.map((pkg) => (
+        {packages.map((pkg, index) => (
+          <div key={`${pkg.name}-${pkg.version}-wrap`} className={`lunareth-fade-up ${index < 5 ? `lunareth-delay-${index + 1}` : ""}`}>
+
           <PackageCard
-          key={`${pkg.name}-${pkg.version}`}
           pkg={pkg}
           baseUrl={baseUrl}
           detailed
           />
+          </div>
         ))}
 
         </div>
@@ -506,7 +508,7 @@ function PackageCard({
   const packageUrl = `${baseUrl}/${pkg.file}`;
 
   return (
-    <div className="bg-zinc-900/60 border border-zinc-800 rounded-2xl p-5 hover:border-zinc-700 transition-colors">
+    <div className="bg-zinc-900/60 border border-zinc-800 rounded-2xl p-5 hover:border-zinc-700 hover:-translate-y-1 transition-all duration-200 lunareth-fade-up">
 
     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-5">
 
@@ -559,7 +561,7 @@ function PackageCard({
       <a
       href={packageUrl}
       download
-      className="px-3 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 text-xs text-white font-medium transition-all flex items-center gap-2"
+      className="px-3 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 hover:-translate-y-0.5 border border-zinc-700 text-xs text-white font-medium transition-all duration-200 flex items-center gap-2"
       >
       <Download className="w-3.5 h-3.5" />
       Download
@@ -569,7 +571,7 @@ function PackageCard({
       href={packageUrl}
       target="_blank"
       rel="noreferrer"
-      className="w-9 h-9 rounded-xl bg-zinc-950 hover:bg-zinc-900 border border-zinc-800 flex items-center justify-center text-stone-500 hover:text-white transition-colors"
+      className="w-9 h-9 rounded-xl bg-zinc-950 hover:bg-zinc-900 hover:-translate-y-0.5 border border-zinc-800 flex items-center justify-center text-stone-500 hover:text-white transition-all duration-200"
       title="Open package"
       >
       <ExternalLink className="w-3.5 h-3.5" />
@@ -597,7 +599,7 @@ function RepositoryInfo({
   return (
     <div className="space-y-4">
 
-    <div className="grid grid-cols-2 gap-3">
+    <div className="grid grid-cols-2 gap-3 lunareth-fade-up lunareth-delay-1">
 
     <InfoCard
     icon={<Server className="w-4 h-4" />}
@@ -626,7 +628,7 @@ function RepositoryInfo({
 
     </div>
 
-    <div className="bg-zinc-950 border border-zinc-800 rounded-2xl p-4">
+    <div className="bg-zinc-950 border border-zinc-800 rounded-2xl p-4 lunareth-fade-up lunareth-delay-2">
 
     <div className="text-xs text-stone-500 mb-2">
     Repository URL
@@ -655,7 +657,7 @@ function RepositoryInfo({
 
     </div>
 
-    <div className="bg-zinc-950 border border-zinc-800 rounded-2xl p-4">
+    <div className="bg-zinc-950 border border-zinc-800 rounded-2xl p-4 lunareth-fade-up lunareth-delay-3">
 
     <div className="flex items-center gap-2 mb-3">
     <Terminal className="w-4 h-4 text-[#9b7ede]" />
@@ -689,7 +691,7 @@ function InfoCard({
   valueClass?: string;
 }) {
   return (
-    <div className="bg-zinc-900/60 border border-zinc-800 rounded-2xl p-4">
+    <div className="bg-zinc-900/60 border border-zinc-800 rounded-2xl p-4 hover:-translate-y-1 hover:border-zinc-700 transition-all duration-200 lunareth-fade-up">
 
     <div className="flex items-center gap-2 text-xs text-stone-500">
     {icon}
