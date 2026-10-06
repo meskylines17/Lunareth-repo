@@ -393,7 +393,7 @@ export default function App() {
     <span>•</span>
 
     <span>
-    Made by meskylines
+    Made by allnew
     </span>
     </div>
 
