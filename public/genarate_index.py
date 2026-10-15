@@ -1,8 +1,8 @@
-
 #!/usr/bin/env python3
 
 import hashlib
 import json
+import os
 import subprocess
 import tempfile
 from pathlib import Path
@@ -12,7 +12,9 @@ PACKAGES_DIR = ROOT / "packages"
 INDEX_FILE = ROOT / "index.json"
 
 REPOSITORY_NAME = "lunareth"
-REPOSITORY_VERSION = "1"
+SCHEMA_VERSION = 2
+REPOSITORY_DESCRIPTION = "Official Lunareth package repository"
+BASE_URL = "https://lunareth-repo.pages.dev/"
 
 
 def rpm_query(package, tag):
@@ -29,7 +31,6 @@ def rpm_query(package, tag):
         text=True,
         check=True,
     )
-
     return result.stdout.strip()
 
 
@@ -47,7 +48,6 @@ def rpm_list(package, tag):
         text=True,
         check=True,
     )
-
     return [
         line.strip()
         for line in result.stdout.splitlines()
@@ -56,33 +56,63 @@ def rpm_list(package, tag):
 
 
 def generate_package_entry(package):
+    """Build one repository entry from an RPM package."""
     name = rpm_query(package, "NAME")
     version = rpm_query(package, "VERSION")
     release = rpm_query(package, "RELEASE")
     architecture = rpm_query(package, "ARCH")
     description = rpm_query(package, "SUMMARY")
     license_name = rpm_query(package, "LICENSE")
-    size_bytes = int(rpm_query(package, "SIZE") or "0")
+    size_bytes = package.stat().st_size
 
-    # Use the actual RPM filename for the download URL
+    if not name or not version or not architecture:
+        raise ValueError("RPM is missing required metadata")
+
     relative_file = package.relative_to(ROOT).as_posix()
-
-    # SHA-256 lets clients verify downloaded package bytes
     digest = hashlib.sha256(package.read_bytes()).hexdigest()
 
     entry = {
+        "name": name,
         "version": version,
-        "file": relative_file,
+        "release": release,
         "architecture": architecture,
+        "filename": package.name,
+        "file": relative_file,
         "description": description,
         "license": license_name,
         "size": size_bytes,
-        "release": release,
         "sha256": digest,
         "dependencies": rpm_list(package, "REQUIRENAME"),
+        "provides": rpm_list(package, "PROVIDENAME"),
+        "conflicts": rpm_list(package, "CONFLICTNAME"),
     }
 
     return name, entry
+
+
+def write_index_atomically(index):
+    """Write the complete index before replacing the old one."""
+    temp_path = None
+
+    try:
+        with tempfile.NamedTemporaryFile(
+            mode="w",
+            encoding="utf-8",
+            dir=ROOT,
+            delete=False,
+            suffix=".tmp",
+        ) as temp_file:
+            temp_path = Path(temp_file.name)
+            json.dump(index, temp_file, indent=2, sort_keys=True)
+            temp_file.write("\n")
+            temp_file.flush()
+            os.fsync(temp_file.fileno())
+
+        temp_path.replace(INDEX_FILE)
+
+    finally:
+        if temp_path is not None:
+            temp_path.unlink(missing_ok=True)
 
 
 def main():
@@ -105,12 +135,13 @@ def main():
             name, entry = generate_package_entry(rpm_file)
 
             if name in packages:
-                raise ValueError(
-                    f"duplicate package name: {name}"
-                )
+                raise ValueError(f"duplicate package name: {name}")
 
             packages[name] = entry
-            print(f"  indexed {name} {entry['version']}")
+            print(
+                f"  indexed {name} "
+                f"{entry['version']}-{entry['release']}"
+            )
 
         except (
             subprocess.CalledProcessError,
@@ -124,30 +155,19 @@ def main():
 
     index = {
         "name": REPOSITORY_NAME,
-        "version": REPOSITORY_VERSION,
+        "schema_version": SCHEMA_VERSION,
+        "repository": {
+            "description": REPOSITORY_DESCRIPTION,
+            "base_url": BASE_URL,
+        },
         "packages": packages,
     }
 
-    # Write to a temporary file first, then replace the index
-    with tempfile.NamedTemporaryFile(
-        mode="w",
-        encoding="utf-8",
-        dir=ROOT,
-        delete=False,
-        suffix=".tmp",
-    ) as temp_file:
-        temp_path = Path(temp_file.name)
-
-        json.dump(index, temp_file, indent=2)
-        temp_file.write("\n")
-
-    try:
-        temp_path.replace(INDEX_FILE)
-    finally:
-        temp_path.unlink(missing_ok=True)
+    write_index_atomically(index)
 
     print(f"\nGenerated {INDEX_FILE}")
     print(f"Indexed {len(packages)} package(s)")
+    print(f"Schema version: {SCHEMA_VERSION}")
 
 
 if __name__ == "__main__":

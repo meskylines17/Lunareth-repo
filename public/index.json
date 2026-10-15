@@ -1,11 +1,32 @@
 {
   "name": "lunareth",
-  "version": "1",
   "packages": {
     "hello": {
-      "version": "1.0.0",
-      "file": "packages/hello-1.0.0.lpk",
-      "architecture": "x86_64"
+      "architecture": "x86_64",
+      "conflicts": [],
+      "dependencies": [
+        "/bin/sh",
+        "rpmlib(LargeFiles)",
+        "rpmlib(PayloadIsZstd)"
+      ],
+      "description": "A simple hello program for Lunareth",
+      "file": "packages/hello-1.0.0-1.x86_64.rpm",
+      "filename": "hello-1.0.0-1.x86_64.rpm",
+      "license": "MIT",
+      "name": "hello",
+      "provides": [
+        "hello",
+        "hello(x86-64)"
+      ],
+      "release": "1",
+      "sha256": "16ddc352d2fac1ad093f1f0b9a714c88076d7554dc63615d132945d447e9181f",
+      "size": 6650,
+      "version": "1.0.0"
     }
-  }
+  },
+  "repository": {
+    "base_url": "https://lunareth-repo.pages.dev/",
+    "description": "Official Lunareth package repository"
+  },
+  "schema_version": 2
 }
