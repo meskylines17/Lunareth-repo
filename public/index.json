@@ -5,23 +5,21 @@
       "architecture": "x86_64",
       "conflicts": [],
       "dependencies": [
-        "/bin/sh",
-        "rpmlib(LargeFiles)",
-        "rpmlib(PayloadIsZstd)"
+        "rpmlib(LargeFiles)"
       ],
-      "description": "A simple hello program for Lunareth",
-      "file": "packages/hello-1.0.0-1.x86_64.rpm",
-      "filename": "hello-1.0.0-1.x86_64.rpm",
-      "license": "MIT",
+      "description": "hello -- hello, world rpm",
+      "file": "packages/hello-1.0-1.x86_64.rpm",
+      "filename": "hello-1.0-1.x86_64.rpm",
+      "license": "GPL",
       "name": "hello",
       "provides": [
         "hello",
         "hello(x86-64)"
       ],
       "release": "1",
-      "sha256": "16ddc352d2fac1ad093f1f0b9a714c88076d7554dc63615d132945d447e9181f",
-      "size": 6650,
-      "version": "1.0.0"
+      "sha256": "bacfa283eb221784a049dedbb63715539ffbff417c87403bd37cdabdd92797d1",
+      "size": 8954,
+      "version": "1.0"
     }
   },
   "repository": {
