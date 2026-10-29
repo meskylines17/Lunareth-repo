@@ -589,6 +589,102 @@
       "size": 889984,
       "version": "3.12"
     },
+    "kernel-lunareth": {
+      "architecture": "x86_64",
+      "conflicts": [],
+      "dependencies": [
+        "rpmlib(LargeFiles)",
+        "rpmlib(PayloadIsZstd)"
+      ],
+      "description": "Lunareth Linux kernel and modules",
+      "file": "packages/kernel-lunareth-7.3-1.x86_64.rpm",
+      "filename": "kernel-lunareth-7.3-1.x86_64.rpm",
+      "license": "GPL-2.0-or-later",
+      "name": "kernel-lunareth",
+      "provides": [
+        "kernel-lunareth",
+        "kernel-lunareth(x86-64)"
+      ],
+      "release": "1",
+      "sha256": "0306cf5e66bdf89eff679c519d813d4cf773afe5e45f4c9ec30d87aad8ab7544",
+      "size": 31754847,
+      "version": "7.3"
+    },
+    "linux-firmware": {
+      "architecture": "noarch",
+      "conflicts": [],
+      "dependencies": [
+        "rpmlib(LargeFiles)",
+        "rpmlib(PayloadIsZstd)"
+      ],
+      "description": "Firmware files for Linux hardware drivers",
+      "file": "packages/linux-firmware-20261029-1.noarch.rpm",
+      "filename": "linux-firmware-20261029-1.noarch.rpm",
+      "license": "GPL-2.0-only AND MIT AND Redistributable",
+      "name": "linux-firmware",
+      "provides": [
+        "linux-firmware"
+      ],
+      "release": "1",
+      "sha256": "89e4727a55c5af463a511c25d9165605090c33ff12fcc486967e4e52e2c2ec45",
+      "size": 689291837,
+      "version": "20261029"
+    },
+    "luna": {
+      "architecture": "x86_64",
+      "conflicts": [],
+      "dependencies": [
+        "libacl.so.1()(64bit)",
+        "libc.so.6()(64bit)",
+        "libc.so.6(GLIBC_2.14)(64bit)",
+        "libc.so.6(GLIBC_2.2.5)(64bit)",
+        "libc.so.6(GLIBC_2.32)(64bit)",
+        "libc.so.6(GLIBC_2.34)(64bit)",
+        "libc.so.6(GLIBC_2.4)(64bit)",
+        "libdnf5.so.2()(64bit)",
+        "libfmt.so.12()(64bit)",
+        "libgcc_s.so.1()(64bit)",
+        "libgcc_s.so.1(GCC_3.0)(64bit)",
+        "libglib-2.0.so.0()(64bit)",
+        "libgobject-2.0.so.0()(64bit)",
+        "libm.so.6()(64bit)",
+        "libmodulemd.so.2()(64bit)",
+        "libpopt.so.0()(64bit)",
+        "librepo.so.0()(64bit)",
+        "librpm.so.10()(64bit)",
+        "librpmio.so.10()(64bit)",
+        "libsolv.so.1()(64bit)",
+        "libsqlite3.so.0()(64bit)",
+        "libstdc++.so.6()(64bit)",
+        "libstdc++.so.6(CXXABI_1.3)(64bit)",
+        "libstdc++.so.6(CXXABI_1.3.9)(64bit)",
+        "libstdc++.so.6(GLIBCXX_3.4)(64bit)",
+        "libstdc++.so.6(GLIBCXX_3.4.11)(64bit)",
+        "libstdc++.so.6(GLIBCXX_3.4.19)(64bit)",
+        "libstdc++.so.6(GLIBCXX_3.4.20)(64bit)",
+        "libstdc++.so.6(GLIBCXX_3.4.21)(64bit)",
+        "libstdc++.so.6(GLIBCXX_3.4.26)(64bit)",
+        "libstdc++.so.6(GLIBCXX_3.4.31)(64bit)",
+        "libstdc++.so.6(GLIBCXX_3.4.32)(64bit)",
+        "libstdc++.so.6(GLIBCXX_3.4.9)(64bit)",
+        "rpmlib(LargeFiles)",
+        "rpmlib(PayloadIsZstd)",
+        "rtld(GNU_HASH)"
+      ],
+      "description": "Lunareth package manager",
+      "file": "packages/luna-2.8.0-1.x86_64.rpm",
+      "filename": "luna-2.8.0-1.x86_64.rpm",
+      "license": "GPL-2.0-or-later",
+      "name": "luna",
+      "provides": [
+        "luna",
+        "luna(x86-64)"
+      ],
+      "release": "1",
+      "sha256": "14fd78bf9002e25eacf7245b9278a390683e94aa9a62a74c8fe67fbbe31565cc",
+      "size": 59434,
+      "version": "2.8.0"
+    },
     "lunareth-base": {
       "architecture": "noarch",
       "conflicts": [],
